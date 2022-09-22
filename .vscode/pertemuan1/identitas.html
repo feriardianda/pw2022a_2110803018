@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nomor Satu</title>
+</head>
+<body>
+	<?php
+		if(isset($_GET['submit'])) {
+			$nama = $_GET['nama'];
+			$umur = $_GET['umur'];
+			$alamat = $_GET['alamat'];
+
+			$connection = mysqli_connect("localhost", "root", "", "nomorsatu");
+			$sql = "INSERT INTO satu (nama, umur, alamat) VALUES ('$nama', '$umur', '$alamat')";
+
+			mysqli_query($connection, $sql);
+		}
+	?>
+	<form action="NomorSatu.php" method="get">
+		<label for="nama">Nama :</label>
+		<br>
+		<input id="nama" type="text" name="nama">
+		<br>
+		<label for="umur">Umur :</label>
+		<br>
+		<input id="umur" type="number" name="umur">
+		<br>
+		<label for="alamat">Alamat :</label>
+		<br>
+		<input id="alamat" type="text" name="alamat">
+		<br>
+		<input type="submit" name="submit" value="Submit">
+	</form>
+</body>
+</html>
